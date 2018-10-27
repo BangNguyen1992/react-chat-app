@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Chatkit from '@pusher/chatkit';
+import each from 'lodash/each';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,15 +13,29 @@ import { NewRoomForm } from './Component/NewRoomForm';
 import { tokenUrl, instanceLocator } from './config/chatkit';
 // import messages from './data/messages';
 
+
+const theme = {
+  '--main-color': '#145CBE',
+  '--primary-message-color': '#000000',
+  '--secondary-message-color': '#3e5869',
+  '--main-text-color': '#FFFFFF',
+  '--secondary-text-color': '#b0c7d6',
+  '--send-message-form': '#F5F5F5',
+  '--background-color': '#FFFFFF',
+};
+
 class App extends Component {
   state = {
     messages: [],
     joinableRooms: [],
     joinedRooms: [],
     roomId: null,
+    theme
   }
 
   componentDidMount() {
+    this.updateCSSVariables(this.state.theme);
+
     const chatManager = new Chatkit.ChatManager({
       instanceLocator,
       userId: 'shinya1992',
@@ -42,6 +58,7 @@ class App extends Component {
   getRooms = () => {
     this.currentUser.getJoinableRooms()
       .then(joinableRooms => {
+        // console.log('object test', this.currentUser.rooms)
         this.setState({
           joinableRooms,
           joinedRooms: this.currentUser.rooms
@@ -54,7 +71,6 @@ class App extends Component {
 
   subscribeToRoom = (roomId) => {
     this.setState({ messages: [] });
-
     this.currentUser
       .subscribeToRoom({
         roomId: roomId,
@@ -87,23 +103,15 @@ class App extends Component {
       .catch(err => console.log('error with createRoom: ', err))
   }
 
+  updateCSSVariables = (variables) => {
+    each(variables, (value, prop) => {
+      document.documentElement.style.setProperty(prop, value);
+    });
+  }
+
   render() {
     return (
       <div className="app">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */}
         <RoomList
           subscribeToRoom={this.subscribeToRoom}
           roomId={this.state.roomId}

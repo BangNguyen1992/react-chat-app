@@ -26,6 +26,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -33,21 +34,14 @@
 
 /* REACT-CHAT-APP */
 
-:root {
-  --main-color: #5ea3d0;
-  --secondary-color: white;
-  --main-text-color: #3e5869;
-  --secondary-text-color: #b0c7d6;
-  --send-message-form: #F5F5F5;
-}
-
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: system-ui;
   font-weight: 200;
-  color: 	#3e5869; 
+  color: #3e5869;
 }
 
 #root {
@@ -56,16 +50,16 @@ html, body {
 
 .app {
   display: grid;
-  height: 100%;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 60px;
-  grid-template-areas: 
-      "r m m m m m"
-      "r m m m m m"
-      "r m m m m m"
-      "r m m m m m"
-      "r m m m m m"
-      "n f f f f f";
+  height: 100vh;
+  grid-template-columns: minmax(250px, auto) repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr) 60px;
+  grid-template-areas:
+    "r m m m m m"
+    "r m m m m m"
+    "r m m m m m"
+    "r m m m m m"
+    "r m m m m m"
+    "n f f f f f";
 }
 
 .new-room-form {
@@ -89,12 +83,12 @@ html, body {
   box-sizing: border-box;
   padding: 10px;
   background-color: var(--main-color);
-  overflow: scroll;
+  overflow: auto;
   height: 100%;
 }
 
-.rooms-list > ul {
-  list-style-type: none;    
+.rooms-list>ul {
+  list-style-type: none;
   padding: 0;
   overflow: scoll;
 }
@@ -103,26 +97,28 @@ html, body {
   margin: 10px 0;
 }
 
-.rooms-list > h3 {
+.rooms-list>h3 {
   margin: 5px 0;
-  color: var(--secondary-color);
+  color: var(--main-text-color);
 }
 
 .rooms-list .room div {
   color: var(--secondary-text-color);
-  font-weight: 600;
+  /* font-weight: 600; */
   text-decoration: none;
   cursor: pointer;
+  padding: 0.5em;
 }
 
 .rooms-list .room.active div {
-  color: var(--secondary-color);
+  color: var(--main-text-color);
+  font-weight: 600;
 }
 
 .new-room-form {
-  padding: 0 5px;
-  background: var(--secondary-color);
-  color: var(--main-text-color);
+  padding: 0 0.5em;
+  background: var(--background-color);
+  color: var(--primary-message-color);
 }
 
 .new-room-form form {
@@ -134,18 +130,19 @@ html, body {
 
 .new-room-form input {
   width: 135px;
-  background: var(--secondary-color);
+  background: var(--background-color);
+  font-size: 0.8em;
 }
 
 .new-room-form button {
-  background: var(--secondary-color);
-  color: var(--main-text-color);
+  background: var(--background-color);
+  color: var(--primary-message-color);
   border: 0;
-} 
+}
 
 .new-room-form input::placeholder {
-  color: var(--main-text-color);
-  font-weight: 200;
+  color: var(--primary-message-color);
+  font-weight: 300;
 }
 
 .new-room-form input:focus {
@@ -166,16 +163,18 @@ html, body {
 
 .message .message-username {
   font-size: 11px;
-  color: var(--main-text-color);
+  color: var(--secondary-message-color);
   opacity: 0.9;
   margin-bottom: 6px;
 }
+
 .message .message-text {
-  background: var(--main-color);
-  color: var(--secondary-color);
+  /* background: var(--main-color); */
+  color: var(--primary-message-color);
   display: inline;
   padding: 4px 8px;
   border-radius: 8px;
+  font-weight: 400;
 }
 
 .message-list {
@@ -183,8 +182,8 @@ html, body {
   padding-left: 6px;
   width: 100%;
   height: 100%;
-  overflow: scroll;
-  background: var(--secondary-color);
+  overflow: auto;
+  background: var(--background-color);
 }
 
 .message-list .join-room {
@@ -207,8 +206,8 @@ html, body {
   margin: 0;
   border-style: none;
   background: var(--send-message-form);
-  font-weight: 200;
-
+  font-weight: 300;
+  font-size: 1em;
 }
 
 .send-message-form input:focus {
@@ -216,7 +215,7 @@ html, body {
 }
 
 .send-message-form input::placeholder {
-  color: var(--main-text-color);
+  color: var(--primary-message-color);
 }
 
 .help-text {

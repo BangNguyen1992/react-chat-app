@@ -11,18 +11,18 @@ const RoomList = props => {
 
   return (
     <div className="rooms-list">
-      <ul>
+
         <h3>Your rooms</h3>
         {orderedRooms.map((room, index) => {
           const isActive = room.id === props.roomId ? 'active' : '';
 
           return (
-            <li key={index} className={'room ' + isActive}>
+            <div key={index} className={'room ' + isActive}>
               <div onClick={() => props.subscribeToRoom(room.id)}># {room.name}</div>
-            </li>
+            </div>
           )
         })}
-      </ul>
+
     </div>
   );
 };

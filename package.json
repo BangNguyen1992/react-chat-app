@@ -6,6 +6,7 @@
     "@pusher/chatkit": "^0.7.18",
     "jss": "^9.8.7",
     "jss-preset-default": "^4.5.0",
+    "lodash": "^4.17.11",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-jss": "^8.6.1",
