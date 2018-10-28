@@ -1,0 +1,16 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form input {
+  min-height: 2em;
+  font-size: 1em;
+}

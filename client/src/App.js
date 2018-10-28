@@ -26,6 +26,7 @@ const theme = {
 
 class App extends Component {
   state = {
+    userId: '',
     messages: [],
     joinableRooms: [],
     joinedRooms: [],
@@ -35,24 +36,25 @@ class App extends Component {
 
   componentDidMount() {
     this.updateCSSVariables(this.state.theme);
-
-    const chatManager = new Chatkit.ChatManager({
-      instanceLocator,
-      userId: 'shinya1992',
-      tokenProvider: new Chatkit.TokenProvider({
-        url: tokenUrl
+    this.setState({ userId: this.props.match.params.userId }, () => {
+      const chatManager = new Chatkit.ChatManager({
+        instanceLocator,
+        userId: this.state.userId,
+        tokenProvider: new Chatkit.TokenProvider({
+          url: tokenUrl
+        })
       })
+
+      chatManager.connect()
+        .then(currentUser => {
+          this.currentUser = currentUser;
+          this.getRooms();
+          // this.subscribeToRoom();
+        })
+        .catch(error => {
+          console.error("error:", error);
+        })
     })
-
-    chatManager.connect()
-      .then(currentUser => {
-        this.currentUser = currentUser;
-        this.getRooms();
-        // this.subscribeToRoom();
-      })
-      .catch(error => {
-        console.error("error:", error);
-      })
   }
 
   getRooms = () => {
