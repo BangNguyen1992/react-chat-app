@@ -18,7 +18,6 @@ class NewRoomForm extends React.Component {
   }
 
   handleFocus = (e) => {
-    console.log('object got here?', e)
     this.setState({roomName: ''})
   }
 
