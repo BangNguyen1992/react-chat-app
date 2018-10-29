@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const RoomList = props => {
   // sort the room in order A -> Z
@@ -27,8 +27,8 @@ const RoomList = props => {
   );
 };
 
-RoomList.propTypes = {
+// RoomList.propTypes = {
 
-};
+// };
 
 export default RoomList;
