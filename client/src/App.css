@@ -158,23 +158,25 @@ body {
 }
 
 .message {
-  margin: 15px 0;
+  padding: 1em 0.5em;
 }
 
 .message .message-username {
-  font-size: 11px;
-  color: var(--secondary-message-color);
-  opacity: 0.9;
+  font-size: 0.8em;
+  color: var(--primary-message-color);
+  /* opacity: 0.9; */
   margin-bottom: 6px;
+  font-weight: 500;
 }
 
 .message .message-text {
   /* background: var(--main-color); */
   color: var(--primary-message-color);
+  font-size: 0.8em;
   display: inline;
   padding: 4px 8px;
   border-radius: 8px;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .message-list {
