@@ -13,10 +13,31 @@ code {
     monospace;
 } */
 
-@import url('https://fonts.googleapis.com/css?family=Lato:300i,400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Lato:300i,400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
+html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  /* font-weight: 200; */
+  /* color: #3e5869; */
+}
+
+#root {
+  height: 100%;
+}
+
+.u-background-gray {
+  background-color: #F6F6F6;
+}
+
+.u-background-blue {
+  background-color: #1887FB;
+}
+
+.u-text-white {
+  color: white;
 }
