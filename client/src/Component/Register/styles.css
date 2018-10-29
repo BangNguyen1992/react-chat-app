@@ -8,9 +8,34 @@
 .register-form {
   display: flex;
   flex-direction: column;
+  height: 12em;
+  justify-content: space-around;
 }
 
 .register-form input {
-  min-height: 2em;
+  /* min-height: 1em;
   font-size: 1em;
+  padding: 1em 0.5em; */
+
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  /* height: 44px; */
+  padding: .75em 1em;
+  /* width: 100%; */
+  -webkit-transition: all .1s;
+  -o-transition: all .1s;
+  transition: all .1s;
+  font: inherit;
+}
+
+.register-button {
+  height: 3em;
+  padding: .75em 1em;
+  width: 100%;
+  background-color: #145CBE;
+  color: white;
+  -webkit-transition: all .1s;
+  -o-transition: all .1s;
+  transition: all .1s;
+  font: inherit;
 }

@@ -84,8 +84,8 @@ class Register extends Component {
             placeholder="Enter your username here"
           />
           {this.state.isExist
-            ? <button type="submit"> Login </button>
-            : <button type="submit"> Register </button>
+            ? <button className="register-button" type="submit"> Login </button>
+            : <button className="register-button" type="submit"> Register </button>
           }
 
         </form>
