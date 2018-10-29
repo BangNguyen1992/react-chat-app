@@ -120,6 +120,7 @@ class App extends Component {
           rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}
         />
         <MessageList
+          currentUser={this.state.userId}
           roomId={this.state.roomId}
           messages={this.state.messages}
         />

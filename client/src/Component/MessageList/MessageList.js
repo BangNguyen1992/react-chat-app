@@ -32,7 +32,7 @@ export default class MessageList extends Component {
       <div className="message-list">
         {this.props.messages.map((message, index) => {
           return (
-            <Message key={index} message={message} />
+            <Message key={index} currentUser={this.props.currentUser} message={message} />
           )
         })}
       </div>
